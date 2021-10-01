@@ -1,11 +1,14 @@
 {
-  "name": "ts-boilerplate",
+  "name": "cheapest-power-hour",
   "version": "1.0.0",
-  "description": "TypeScript boilerplate",
-  "main": "build/index.js",
+  "description": "Script para calcular cuáles son las horas más baratas de electricidad para la tarifa 2.0TD en España dado un intervalo.",
+  "bin": {
+    "get-cheapest-hours": "bin/get-cheapest-interval.js"
+  },
   "files": [
     "build",
-    "!build/**/*.test.*"
+    "bin",
+    "!build/**/*.js.map"
   ],
   "scripts": {
     "prepare": "npm run build",
@@ -16,9 +19,9 @@
     "build:only": "tsc -p tsconfig.build.json",
     "lint": "eslint . --ext .ts",
     "lint:fix": "npm run lint -- --fix",
-    "test": "jest",
-    "test:watch": "npm t -- --watchAll",
-    "test:coverage": "npm t -- --coverage"
+    "prepublishOnly": "npm run tag",
+    "tag": "TAG=v$(node -pe \"require('./package.json').version\"); git commit -am \"🔖 $TAG\" && git tag $TAG && git push && git push --tags",
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
