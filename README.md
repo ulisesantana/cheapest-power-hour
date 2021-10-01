@@ -5,7 +5,7 @@ Este proyecto es un script para calcular cuáles son las horas más baratas de e
 Para ejecutar el script sólo tienes que ejecutar:
 
 ```shell
-npx get-cheapest-interval -n 4
+npx cheapest-power-hour -n 4
 ```
 
 La opción `-n` es el número de horas para el intervalo. Un ejemplo de lo que saldría por la pantalla sería:
