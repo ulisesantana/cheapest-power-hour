@@ -1,6 +1,6 @@
 {
   "name": "cheapest-power-hour",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Script para calcular cuáles son las horas más baratas de electricidad para la tarifa 2.0TD en España dado un intervalo.",
   "bin": {
     "get-cheapest-hours": "bin/get-cheapest-interval.js"
