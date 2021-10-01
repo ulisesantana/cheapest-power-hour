@@ -10,7 +10,7 @@ npx cheapest-power-hour -n 4
 
 La opción `-n` es el número de horas para el intervalo. Un ejemplo de lo que saldría por la pantalla sería:
 ```shell
-$ npx get-cheapest-interval -n 4
+$ npx cheapest-power-hour -n 4
 Los intervalos de 4 horas más baratos son: 
   - De las 1 horas a las 5 horas.
   - De las 2 horas a las 6 horas.
