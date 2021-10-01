@@ -1,62 +1,19 @@
-# ts-boilerplate
+# cheapest-power-hour
 
-This is a template repository. So just use the template and once you have your repository cloned on your pc just run `npm install` for installing all the dependencies.
+Este proyecto es un script para calcular cuáles son las horas más baratas de electricidad para la tarifa 2.0TD en España dado un intervalo. Siempre devolverá los intervalos de horas más baratas, siendo todos ellos igual de "caros".
 
-## Scripts
+Para ejecutar el script sólo tienes que ejecutar:
 
-```json
-"prepare": "npm run build",
-"prestart": "npm run build",
-"start": "node build/index.js",
-"dev": "npm run build -- --watch & nodemon build/index.js",
-"build": "npm run lint && npm test && tsc",
-"lint": "eslint . --ext .ts",
-"lint:fix": "npm run lint -- --fix",
-"test": "jest --verbose",
-"test:watch": "npm t -- --watchAll",
-"test:coverage": "npm t -- --coverage"
+```shell
+npx get-cheapest-interval -n 4
 ```
 
-## Test config
-
-```json
-{
-  "roots": [
-    "<rootDir>/src"
-  ],
-  "testMatch": [
-    "**/__tests__/**/*.+(ts|js)", 
-    "**/?(*.)+(spec|test).+(ts|js)"
-  ],
-  "transform": {
-    "^.+\\.(ts)?$": "ts-jest"
-  }
-}
-```
-
-## Linter config
-
-```json
-{
-    "env": {
-        "es2021": true,
-        "node": true,
-        "jest": true
-    },
-    "extends": [
-        "standard"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": 12,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "@typescript-eslint"
-    ],
-    "rules": {
-        "no-unused-vars": "off",
-        "@typescript-eslint/no-unused-vars": ["error"]
-    }
-}
+La opción `-n` es el número de horas para el intervalo. Un ejemplo de lo que saldría por la pantalla sería:
+```shell
+$ npx get-cheapest-interval -n 4
+Los intervalos de 4 horas más baratos son: 
+  - De las 1 horas a las 5 horas.
+  - De las 2 horas a las 6 horas.
+  - De las 3 horas a las 7 horas.
+  - De las 4 horas a las 8 horas.
 ```
