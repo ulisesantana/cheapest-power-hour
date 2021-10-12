@@ -2,18 +2,18 @@
 
 Este proyecto es un script para calcular cuáles son las horas más baratas de electricidad para la tarifa 2.0TD en España dado un intervalo. Siempre devolverá los intervalos de horas más baratas, siendo todos ellos igual de "caros".
 
-Para ejecutar el script sólo tienes que ejecutar:
-
 ```shell
-npx cheapest-power-hour -n 4
+$ npx cheapest-power-hour -n 4 -f 10 -t 18
+Los intervalos de 4 horas más baratos de las 10 a las 18 son: 
+  - De las 14 horas a las 18 horas.
 ```
 
-La opción `-n` es el número de horas para el intervalo. Un ejemplo de lo que saldría por la pantalla sería:
+## Uso
+
 ```shell
-$ npx cheapest-power-hour -n 4
-Los intervalos de 4 horas más baratos son: 
-  - De las 1 horas a las 5 horas.
-  - De las 2 horas a las 6 horas.
-  - De las 3 horas a las 7 horas.
-  - De las 4 horas a las 8 horas.
+USAGE: cheapest-power-hour [OPTION1] [OPTION2]... arg1 arg2...
+The following options are supported:
+  -n, --hours <ARG1>    Número de horas del intervalo.
+  -f, --from <ARG1>     Desde qué hora quieres buscar el intervalo. ("1" by default)
+  -t, --to <ARG1>       Hasta qué hora quieres buscar el intervalo. ("24" by default)
 ```

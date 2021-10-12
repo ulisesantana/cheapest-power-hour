@@ -1,5 +1,5 @@
 import { HourList } from '../domain'
 
 export interface HourRepository {
-  findHourSchedule(): Promise<HourList>
+  findHourSchedule(fromHour: number, toHour: number): Promise<HourList>
 }

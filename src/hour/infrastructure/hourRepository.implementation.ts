@@ -10,8 +10,18 @@ export class HourRepositoryImplementation implements HourRepository {
     'hour24'
   ]
 
-  async findHourSchedule (): Promise<HourList> {
-    return HourRepositoryImplementation.mapToDomain(hourSchedule)
+  async findHourSchedule (fromHour: number, toHour: number): Promise<HourList> {
+    const hours = HourRepositoryImplementation.mapToDomain(hourSchedule)
+    if (fromHour < toHour) {
+      return new HourList(hours.values.filter(h => h.value >= fromHour && h.value <= toHour))
+    } else {
+      const hourIndex = hours.values.findIndex(h => h.value === fromHour)
+      const hoursToFilter = [
+        ...hours.values.slice(hourIndex),
+        ...hours.values.slice(0, hourIndex)
+      ]
+      return new HourList(hoursToFilter.filter(h => h.value >= fromHour || h.value <= toHour))
+    }
   }
 
   private static mapToDomain (rawHourSchedule: HourScheduleRaw): HourList {
